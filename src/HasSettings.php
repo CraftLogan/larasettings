@@ -1,6 +1,6 @@
 <?php
 
-namespace Cklmercer\ModelSettings;
+namespace Craftlogan\ModelSettings;
 
 trait HasSettings
 {
