@@ -25,11 +25,11 @@
 	},
   "extra": {
     "laravel": {
-        "providers": [
-            "Craftlogan\\LaraSettings\\ServiceProvider"
-        ],
-    }
-},
+            "providers": [
+                "Craftlogan\\LaraSettings\\LaraSettingsServiceProvider"
+            ]
+        }
+    },
 
     "minimum-stability": "dev"
 }
