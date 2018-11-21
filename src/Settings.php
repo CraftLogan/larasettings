@@ -109,19 +109,46 @@ class Settings
      *
      * @return array
      */
-    public function set($path = null, $value = [])
+    public function set($path = null, $value = [], $type = null, $typeOptions = [])
     {
         if (func_num_args() < 2) {
             $value = $path;
             $path = null;
         }
-
+        //dd($typeOptions);
         $settings = $this->all();
 
         array_set($settings, $path, $value);
+        array_set($settings, $path.'.type.selected', $value);
+        array_set($settings, $path.'.type.type', $type);
+        $settings = $this->setTypeOptions($settings, $path, $typeOptions);
 
         return $this->apply($settings);
     }
+
+
+    /**
+     * Update the settings typeoption for a given setting path
+     *
+     * @param array $settings
+     * @param string|null $path
+     * @param array       $typeOptions
+     *
+     * @return array $settings
+     */
+    private function setTypeOptions($settings, $path, $typeOptions = [])
+    {
+        $i = 0;
+        foreach ($typeOptions as $option) {
+          array_set($settings, $path.'.type.type_options.'.$i, $option);
+          $i++;
+        }
+        return $settings;
+    }
+
+
+
+
 
     /**
      * Update the setting at the given path if it exists.
