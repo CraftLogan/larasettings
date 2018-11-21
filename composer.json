@@ -20,13 +20,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Craftlogan\\ModelSettings\\": "src/"
+            "Craftlogan\\LaraSettings\\": "src/"
         }
 	},
   "extra": {
     "laravel": {
         "providers": [
-            "Craftlogan\\Larasettings\\ServiceProvider"
+            "Craftlogan\\LaraSettings\\ServiceProvider"
         ],
     }
 },

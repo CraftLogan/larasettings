@@ -1,6 +1,6 @@
 <?php
 
-namespace Craftlogan\ModelSettings;
+namespace Craftlogan\LaraSettings;
 
 trait HasSettings
 {
