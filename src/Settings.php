@@ -120,11 +120,33 @@ class Settings
 
         array_set($settings, $path, $value);
         array_set($settings, $path.'.type.selected', $value);
-        array_set($settings, $path.'.type.type', $type);
+        $settings = $this->setType($settings, $path, $type);
         $settings = $this->setTypeOptions($settings, $path, $typeOptions);
 
         return $this->apply($settings);
     }
+
+
+    /**
+     * Update the settings type
+     *
+     * @param array $settings
+     * @param string|null $path
+     * @param array       $typeOptions
+     *
+     * @return array $settings
+     */
+    private function setType($settings, $path, $type = null)
+    {
+        if(is_null($type)){
+          array_set($settings, $path.'.type.type', 'standard');
+        }else{
+          array_set($settings, $path.'.type.type', $type);
+        }
+        return $settings;
+    }
+
+
 
 
     /**

@@ -23,6 +23,13 @@
             "Craftlogan\\ModelSettings\\": "src/"
         }
 	},
+  "extra": {
+    "laravel": {
+        "providers": [
+            "Craftlogan\\Larasettings\\ServiceProvider"
+        ],
+    }
+},
 
     "minimum-stability": "dev"
 }
