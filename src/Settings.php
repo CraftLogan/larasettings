@@ -1,6 +1,6 @@
 <?php
 
-namespace Craftlogan\ModelSettings;
+namespace Cklmercer\ModelSettings;
 
 use Illuminate\Database\Eloquent\Model;
 
