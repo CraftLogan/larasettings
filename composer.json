@@ -1,0 +1,28 @@
+{
+    "name": "craftlogan/larasettings",
+    "description": "Add simple yet flexible settings to your Laravel models.",
+    "keywords": ["laravel", "settings", "models"],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/craftlogan/larasettings/issues",
+        "source": "https://github.com/craftloan/larasettings"
+    },
+    "authors": [
+        {
+            "name": "Logan Craft",
+            "email": "logan@kingappdesigns.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/database": "^5.2",
+        "illuminate/support": "^5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Craftlogan\\ModelSettings\\": "src/"
+        }
+	},
+
+    "minimum-stability": "dev"
+}
