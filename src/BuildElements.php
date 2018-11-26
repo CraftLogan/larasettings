@@ -1,7 +1,7 @@
 <?php
 
 namespace Craftlogan\LaraSettings;
-
+use Craftlogan\LaraSettings\Card;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -12,21 +12,24 @@ class BuildElements
 
     private static $view;
 
+
     public function __construct($settings)
     {
       self::$settings = $settings;
 
       static::applySettingHeaders();
+
     }
 
 
     private static function applySettingHeaders()
     {
-      //dd(self::$settings);
+
         foreach(self::$settings as $settingName => $settingValue)
         {
           static::applySetting($settingValue);
         }
+
     }
 
     private static function applySetting($settings)
@@ -35,17 +38,11 @@ class BuildElements
         {
           $decorator = static::createElementDecorator($settingValue['type']['type']);
           if (static::isValidDecorator($decorator)) {
-              self::$view = self::$view.$decorator::add($settingValue['type']['type_options'], $settingValue['type']['selected']);
+              self::$view = self::$view.$decorator::add($settingValue['type']['type_options'], $settingValue['type']['label'], $settingValue['type']['selected']);
           }
         }
-        dd(self::$view);
+
     }
-
-
-
-
-
-
 
 
     private static function createElementDecorator($name)
@@ -58,7 +55,14 @@ class BuildElements
         return class_exists($decorator);
     }
 
+    public function get(){
+      return Card::built(self::$view);
+    }
+
   }
+
+
+
 
 /*
 

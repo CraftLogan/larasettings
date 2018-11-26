@@ -18,7 +18,7 @@ class Card
       return self::$view;
     }
 
-    private static function builtHeader()
+    private static function buildHeader()
     {
       $header = '
           <div class="card">
@@ -31,17 +31,10 @@ class Card
     }
 
 
-    public function buildBody($elements)
+    public static function buildBody($elements)
     {
-      $body = '<div class="body">
-
-          <div class="form-group">
-              <input type="password" class="form-control" placeholder="Current Password">
-          </div>
-          <div class="form-group">
-              <input type="password" class="form-control" placeholder="New Password">
-          </div>
-          <button class="btn btn-info btn-round">Save Changes</button>
+      $body = '<div class="body">'.$elements.'
+          <button class="btn btn-primary btn-round">Save Changes</button>
       </div>';
 
       self::$view = self::$view.$body;
@@ -49,7 +42,7 @@ class Card
 
 
 
-    private static function buildFooter($settings)
+    private static function buildFooter()
     {
       $footer = '</div>';
       self::$view = self::$view.$footer;

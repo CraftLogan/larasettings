@@ -4,7 +4,7 @@ namespace Craftlogan\LaraSettings\Elements;
 
 use Illuminate\Database\Eloquent\Builder;
 
-class Standard implements Element
+class Checkbox implements Element
 {
     /**
      * Add to the settings build
@@ -15,9 +15,14 @@ class Standard implements Element
      */
     public static function add($options = [], $label, $value)
     {
-
-      $element = '<div class="form-group">
-                    <input type="text" class="form-control" placeholder="Username" value="'.$value.'">
+      if($value == 'true'){
+        $checked = "checked";
+      }else{
+        $checked = "";
+      }
+      $element = '<div class="checkbox">
+                      <input id="'.$label.'" type="checkbox" value="'.$value.'"'.$checked.'>
+                      <label for="'.$label.'">'.$label.'</label>
                     </div>';
       return $element;
     }

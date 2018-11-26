@@ -109,7 +109,7 @@ class Settings
      *
      * @return array
      */
-    public function set($path = null, $value = [], $type = null, $typeOptions = [])
+    public function set($path = null, $label = null, $value = [], $type = null, $typeOptions = [])
     {
         if (func_num_args() < 2) {
             $value = $path;
@@ -120,6 +120,7 @@ class Settings
 
         array_set($settings, $path, $value);
         array_set($settings, $path.'.type.selected', $value);
+        array_set($settings, $path.'.type.label', $label);
         $settings = $this->setType($settings, $path, $type);
         $settings = $this->setTypeOptions($settings, $path, $typeOptions);
 

@@ -4,7 +4,7 @@ namespace Craftlogan\LaraSettings\Elements;
 
 use Illuminate\Database\Eloquent\Builder;
 
-class Standard implements Element
+class Time implements Element
 {
     /**
      * Add to the settings build
@@ -15,9 +15,9 @@ class Standard implements Element
      */
     public static function add($options = [], $label, $value)
     {
-
-      $element = '<div class="form-group">
-                    <input type="text" class="form-control" placeholder="Username" value="'.$value.'">
+      $element = '<div class="checkbox">
+                      <input id="procheck1" type="checkbox">
+                      <label for="procheck1">Profile Visibility For Everyone</label>
                     </div>';
       return $element;
     }
